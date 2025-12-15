@@ -1,14 +1,9 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login</title>
+  <title>Register</title>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -16,9 +11,21 @@
 <body class="bg-gray-100 min-h-screen flex items-center justify-center">
 
   <div class="bg-white shadow-lg rounded-xl w-full max-w-md p-8">
-    <h2 class="text-3xl font-bold text-center mb-6">Login</h2>
+    <h2 class="text-3xl font-bold text-center mb-6">Register</h2>
 
-    <form id="loginForm" class="space-y-4">
+    <form id="registerForm" class="space-y-4">
+
+      <!-- Name -->
+      <div>
+        <label class="text-sm font-medium text-gray-600">Full Name</label>
+        <input
+          type="text"
+          id="name"
+          required
+          placeholder="Enter your name"
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+        />
+      </div>
 
       <!-- Email -->
       <div>
@@ -39,56 +46,59 @@
           type="password"
           id="password"
           required
-          placeholder="Enter your password"
+          placeholder="Create password"
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+        />
+      </div>
+
+      <!-- Confirm Password -->
+      <div>
+        <label class="text-sm font-medium text-gray-600">Confirm Password</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          required
+          placeholder="Confirm password"
           class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
         />
       </div>
 
       <!-- Error -->
       <p id="errorMsg" class="text-red-500 text-sm hidden">
-        Please enter a valid email address
+        Passwords do not match
       </p>
 
-      <!-- Login Button -->
-           <!-- Login Button -->
+      <!-- Register Button -->
       <button
         type="submit"
         class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
       >
-        Login
-      </button>
-
-      <!-- OR -->
-      <div class="text-center text-gray-400 text-sm">
-        or continue with
-      </div>
-
-      <!-- Register Button -->
-      <button
-        type="button"
-        onclick="window.location.href='register.html'"
-        class="w-full border border-indigo-600 text-indigo-600 py-2 rounded-lg hover:bg-indigo-50 transition"
-      >
         Register
       </button>
 
+      <!-- Back to Login -->
+      <p class="text-center text-sm text-gray-500">
+        Already have an account?
+        <a href="login.html" class="text-indigo-600 font-medium hover:underline">
+          Login
+        </a>
+      </p>
 
     </form>
   </div>
 
   <!-- JavaScript -->
   <script>
-    document.getElementById("loginForm").addEventListener("submit", function (e) {
+    document.getElementById("registerForm").addEventListener("submit", function (e) {
       e.preventDefault();
 
-      const email = document.getElementById("email").value.trim();
       const password = document.getElementById("password").value.trim();
+      const confirmPassword = document.getElementById("confirmPassword").value.trim();
       const errorMsg = document.getElementById("errorMsg");
 
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      if (emailPattern.test(email) && password !== "") {
-        window.location.href = "home.html";
+      if (password === confirmPassword) {
+        alert("Registration Successful!");
+        window.location.href = "login.html";
       } else {
         errorMsg.classList.remove("hidden");
       }
