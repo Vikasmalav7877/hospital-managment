@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
       loop: true,
       autoplay: {
         delay: 4000,
-        disableOnInteraction: false,
-      },
+          disableOnInteraction: false,
+        },
       speed: 500,
       
       // Pagination
