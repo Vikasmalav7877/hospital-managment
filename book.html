@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -157,4 +158,128 @@
         });
     </script>
   </body>
+=======
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doctor Appointment</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+  <div class="bg-white shadow-lg rounded-xl w-full max-w-xl m-12 p-8">
+    <h2 class="text-3xl font-bold text-center mb-6">
+      Book Doctor Appointment
+    </h2>
+
+    
+    <form id="appointmentForm" class="space-y-4">
+
+      <!-- Patient Name -->
+      <div>
+        <label class="text-sm font-medium text-gray-600">Patient Name</label>
+        <input
+          type="text"
+          required
+          placeholder="Enter patient name"
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+        />
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label class="text-sm font-medium text-gray-600">Email</label>
+        <input
+          type="email"
+          required
+          placeholder="Enter email"
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+        />
+      </div>
+
+      <!-- Phone -->
+      <div>
+        <label class="text-sm font-medium text-gray-600">Phone Number</label>
+        <input
+          type="tel"
+          required
+          placeholder="Enter phone number"
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+        />
+      </div>
+
+      <!-- Doctor Selection -->
+      <div>
+        <label class="text-sm font-medium text-gray-600">Select Doctor</label>
+        <select
+          required
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+        >
+          <option value="">Choose Doctor</option>
+          <option>Dr. Ashok – Cardiac Sciences</option>
+          <option>Dr. Urvshi – Dentist</option>
+          <option>Dr. Gracy Rathore – Orthopedic</option>
+          <option>Dr. Vikas Malav – General Physician</option>
+          <option>Dr. Varun Saxena – Neurologist</option>
+          <option>Dr. Kaushal Sen – Geriatric</option>
+          <option>Dr. kratika Saini – Cardiologist</option>
+         
+        </select>
+      </div>
+
+      <!-- Date -->
+      <div>
+        <label class="text-sm font-medium text-gray-600">Appointment Date</label>
+        <input
+          type="date"
+          required
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+        />
+      </div>
+
+      <!-- Time -->
+      <div>
+        <label class="text-sm font-medium text-gray-600">Appointment Time</label>
+        <input
+          type="time"
+          required
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+        />
+      </div>
+
+      <!-- Message -->
+      <div>
+        <label class="text-sm font-medium text-gray-600">Problem / Message</label>
+        <textarea
+          rows="3"
+          placeholder="Describe your problem"
+          class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+        ></textarea>
+      </div>
+
+      <!-- Submit -->
+      <button
+        type="submit"
+        class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition"
+      >
+        Book Appointment
+      </button>
+
+
+    </form>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    document.getElementById("appointmentForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Appointment Booked Successfully!");
+      window.location.href = "home.html"; // redirect after booking
+    });
+  </script>
+
+</body>
+>>>>>>> 04bd476da4805967e69f5ec56540e6d87907ad94
 </html>
