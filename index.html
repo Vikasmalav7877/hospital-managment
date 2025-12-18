@@ -65,43 +65,41 @@
     </div>
 
     <!-- JavaScript -->
- <script>
-  const form = document.getElementById("registerForm");
+    <script>
+      let vm = localStorage.getItem("vik");
+      console.log("true", vm);
 
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault();
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+          let obj = {
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value,
+          };
+          let data = await fetch("https://doctor-qqp3.onrender.com/api/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(obj),
+          });
+          data = await data.json();
+          console.log("login dataa", data);
 
-    try {
-      const response = await fetch(
-        "https://doctor-qqp3.onrender.com/api/login",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, password }),
-        }
-      );
+          document.getElementById("email").value = null;
+          document.getElementById("password").value = null;
 
-      const data = await response.json();
-      console.log("API response:", data);
-
-      if (data) { // ✅ backend response exists
-        localStorage.setItem("vik", "true");
-        alert("Login Successful");
-
-        // ✅ FORCE REDIRECT (100%)
-        window.location.assign("home.html");
-      } else {
-        alert("Wrong email or password");
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Server error");
-    }
-  });
-</script>
-
+          if (data.vikash) {
+            localStorage.setItem("vik", true);
+            alert("Login Successfully");
+            window.location.href = "home.html";
+          } else {
+            localStorage.setItem("vik", false);
+            alert("wrong email or password");
+          }
+        });
+    </script>
   </body>
 </html>
